@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TSO Habitat Manager</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
+	 <script src="http://code.jquery.com/jquery.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1> TSO Habitat Content Manager</h1>
+			<p>A site for contributor to TELUS' go/tso homepage</p>
+			<p><a class="btn btn-primary bth-large"> TSO Hompage</a></p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h2>Upcoming CSO Events</h2>
+				<!-- triggers modal for adding an event to the list -->
+				<p><button type="button" data-toggle="collapse" data-target="#addevent" class="btn btn btn-default">Add Calendar Item</button></p>
+				<div id="addevent" class="collapse">
+				<form role="form" style="margin-bottom:20px;">
+					<h3>New Calendar Item</h3>
+					<div class="form-group" style="width: 300px">
+						
+						<label for="Date">Date</label>
+						<input type="date" class="form-control" id="eventDate" placeholder="Event Date (yyyy,mm,dd)">
+					</div>
+					<div class="form-group" style="width: 300px">
+
+						<label for="eventTitle">Title</label>
+						<input type="text" class="form-control" id="eventTitle" placeholder="Title">
+					</div>
+					<div class="form-group"style="width: 300px">
+
+						<label for="eventTime">Time</label>
+						<input type="text" class="form-control" id="eventTime" placeholder="Time">
+					</div>
+					<div class="form-group"style="width: 300px">
+						<label for="eventLocation">Location</label>
+						<input type="text" class="form-control" id="eventLocation" placeholder="Location">
+					</div>
+					<div class="form-group" style="width: 500px">
+						<label for="eventLocation">Link</label>
+						<input type="url" class="form-control" id="eventLink" placeholder="Link">
+					</div>
+
+					<button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#addevent">Submit</button>
+				</form>
+				</div>
+
+				<table class="table table-bordered">
+					<th>
+						<td>Date</td>
+						<td>Title</td>
+						<td>Time</td>
+						<td>Location</td>
+						<td>Link</td>
+						<td>Online</td>
+					</th>
+					<tr>
+						<td>1</td>
+						<td>2013, 10, 6</td>
+						<td>NSO Monthly Manager Call</td>
+						<td>1-2pm PT</td>
+						<td>Webex</td>
+						<td>http://google.com</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>2013, 10, 8</td>
+						<td>CSO Let's Talk Security</td>
+						<td>Live Meeting</td>
+						<td>3-4PM</td>
+						<td>http://google.com</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>2013, 10, 22</td>
+						<td>P&amp;SCM Townhall</td>
+						<td>2-3pm PT</td>
+						<td>Burnaby</td>
+						<td>http://google.com</td>
+						<td>Yes</td>
+					</tr>
+				</table>
+				<h2>TSO News Stories</h2>
+				<p><button type="button" data-toggle="collapse" data-target="#addnews" class="btn btn btn-default">Add News Item</button></p>
+
+				<div id="addnews" class="collapse">
+				<form role="form" style="margin-bottom:20px;">
+					<h3>New News Item</h3>
+
+					<div class="form-group" style="width: 300px">
+
+						<label for="newsTitle">Title</label>
+						<input type="text" class="form-control" id="newsTitle" placeholder="Title">
+					</div>
+					<div class="form-group" style="width: 300px">
+						
+						<label for="newsDate">Published Date</label>
+						<input type="date" class="form-control" id="newsDate" placeholder="yyyy,mm,dd">
+					</div>
+					<div class="form-group" style="width: 500px">
+						<label for="newsLink">Link</label>
+						<input type="url" class="form-control" id="newsLink" placeholder="Link">
+					</div>
+					<div class="form-group" style="width: 300px">
+						<label for="newsAuthor">Author</label>
+						<input type="text" class="form-control" id="newsAuthor" placeholder="Author">
+					</div>
+
+					<button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#addnews">Submit</button>
+				</form>
+				</div>
+				<table class="table table-bordered">
+					<th>
+						<td>Title</td>
+						<td>Published Date</td>
+						<td>Link</td>
+						<td>Author</td>
+						<td>Online</td>
+					</th>
+					<tr>
+						<td>1</td>
+						<td>BNP&amp;E Significantly contributing to clean energy goald</td>
+						<td>2013, 10, 4</td>
+						<td><a href="#">link</a></td>
+						<td>BPN&amp;E</td>
+						<td>yes</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Improving your mobile communication experience</td>
+						<td>2013, 9, 22</td>
+						<td><a href="#">link</a></td>
+						<td>TSO Communications</td>
+						<td>yes</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>TELUS wins supplier diversity award</td>
+						<td>2013, 9, 18</td>
+						<td><a href="#">link</a></td>
+						<td>Jenny Lyons</td>
+						<td>yes</td>
+					</tr>
+
+				</table>
+
+			</div>
+		</div>
+	</div>
+
+
+
+<!-- 	<div class="modal fade" id="addevent" tabindex="-1" role="dialog" aria-labelledby="AddCalendarEvent" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">head</div>
+			<div class="modal-body"> torso</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" datat-dismiss="modal" onclick="$('#myModal').modal('hide')">Close</button>
+				<button type="button" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+	</div>
+	</div> -->
+</body>
+</html>
