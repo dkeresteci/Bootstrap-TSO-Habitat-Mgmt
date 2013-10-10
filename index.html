@@ -6,14 +6,42 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
 	 <script src="http://code.jquery.com/jquery.js"></script>
      <script src="js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="js/tsohabitatmgmt.js"></script>
+<script type="text/javascript">
+
+function myFunction()
+{
+  $.post("addevent.php",
+  {
+    date: $("#eventDate").val(),
+    title: $("#eventTitle").val(),
+    time: $("#eventTime").val(),
+    location : $("#eventLocation").val() ,
+    link: $("#eventLink").val()
+  },
+  function(data,status){
+  	getEventsDB();
+    alert("Status: " + status);
+  });
+}
+
+function getEventsDB()
+{
+ $("#eventsBody").load("loadevents.php");
+}
+
+</script>
+
+
 </head>
-<body>
+<body onload="getEventsDB()">
 	<div class="container">
 		<div class="jumbotron">
 			<h1> TSO Habitat Content Manager</h1>
 			<p>A site for contributor to TELUS' go/tso homepage</p>
 			<p><a class="btn btn-primary bth-large"> TSO Hompage</a></p>
 		</div>
+		<h3 id="goesHere"></h3>
 	</div>
 	<div class="container">
 		<div class="row">
@@ -21,11 +49,9 @@
 				<h2>Upcoming CSO Events</h2>
 				<!-- triggers modal for adding an event to the list -->
 				<p><button type="button" data-toggle="collapse" data-target="#addevent" class="btn btn btn-default">Add Calendar Item</button></p>
-				<div id="addevent" class="collapse">
-				<form role="form" style="margin-bottom:20px;">
+				<div id="addevent" class="collapse" style="margin-bottom:20px;">
 					<h3>New Calendar Item</h3>
 					<div class="form-group" style="width: 300px">
-						
 						<label for="Date">Date</label>
 						<input type="date" class="form-control" id="eventDate" placeholder="Event Date (yyyy,mm,dd)">
 					</div>
@@ -45,49 +71,26 @@
 					</div>
 					<div class="form-group" style="width: 500px">
 						<label for="eventLocation">Link</label>
-						<input type="url" class="form-control" id="eventLink" placeholder="Link">
+						<input type="text" class="form-control" id="eventLink" placeholder="Link">
 					</div>
 
-					<button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#addevent">Submit</button>
-				</form>
+					<button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#addevent" onclick="myFunction()">Submit</button >
 				</div>
 
-				<table class="table table-bordered">
-					<th>
-						<td>Date</td>
-						<td>Title</td>
-						<td>Time</td>
-						<td>Location</td>
-						<td>Link</td>
-						<td>Online</td>
-					</th>
-					<tr>
-						<td>1</td>
-						<td>2013, 10, 6</td>
-						<td>NSO Monthly Manager Call</td>
-						<td>1-2pm PT</td>
-						<td>Webex</td>
-						<td>http://google.com</td>
-						<td>Yes</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>2013, 10, 8</td>
-						<td>CSO Let's Talk Security</td>
-						<td>Live Meeting</td>
-						<td>3-4PM</td>
-						<td>http://google.com</td>
-						<td>Yes</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>2013, 10, 22</td>
-						<td>P&amp;SCM Townhall</td>
-						<td>2-3pm PT</td>
-						<td>Burnaby</td>
-						<td>http://google.com</td>
-						<td>Yes</td>
-					</tr>
+				<table class="table table-bordered" id="eventsTable">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Title</th>
+							<th>Time</th>
+							<th>Location</th>
+							<th>Link</th>
+							<th>Online</th>	
+						</tr>
+					</thead>
+					<tbody id="eventsBody">
+						
+					</tbody>
 				</table>
 				<h2>TSO News Stories</h2>
 				<p><button type="button" data-toggle="collapse" data-target="#addnews" class="btn btn btn-default">Add News Item</button></p>
@@ -119,15 +122,18 @@
 				</form>
 				</div>
 				<table class="table table-bordered">
-					<th>
-						<td>Title</td>
-						<td>Published Date</td>
-						<td>Link</td>
-						<td>Author</td>
-						<td>Online</td>
-					</th>
+					<thead>
+						<tr>
+						<th>Title</th>
+						<th>Published Date</th>
+						<th>Link</th>
+						<th>Author</th>
+						<th>Online</th>	
+						</tr>
+						
+					</thead>
 					<tr>
-						<td>1</td>
+						
 						<td>BNP&amp;E Significantly contributing to clean energy goald</td>
 						<td>2013, 10, 4</td>
 						<td><a href="#">link</a></td>
@@ -135,7 +141,7 @@
 						<td>yes</td>
 					</tr>
 					<tr>
-						<td>2</td>
+						
 						<td>Improving your mobile communication experience</td>
 						<td>2013, 9, 22</td>
 						<td><a href="#">link</a></td>
@@ -143,7 +149,7 @@
 						<td>yes</td>
 					</tr>
 					<tr>
-						<td>3</td>
+						
 						<td>TELUS wins supplier diversity award</td>
 						<td>2013, 9, 18</td>
 						<td><a href="#">link</a></td>

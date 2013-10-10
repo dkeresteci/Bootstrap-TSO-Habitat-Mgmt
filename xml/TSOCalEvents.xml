@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UFT-8"?>
+
+<list>
+	<event online="false">
+		<num>1</num>
+		<date> </date>
+		<title>BNP&amp;E Significantly contributing to clean energy goals</title>
+		<time>2013, 10, 4</time>
+		<location>BPN&amp;E</location>
+		<link>#</link>
+		
+	</event>
+
+	<event online="false">
+		<num>2</num>
+		<date> </date>
+		<title>Improving your mobile communication experience</title>
+		<time>2013, 9, 22</time>
+		<location>TSO Communications</location>
+		<link>#</link>
+	</event>
+
+
+	<event online="false">
+		<num>3</num>
+		<date> </date>
+		<title>TELUS wins supplier diversity award</title>
+		<time>2013, 9, 18</time>
+		<location>Jenny Lyons</location>
+		<link>#</link>
+	</event>
+</list>
